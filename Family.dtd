@@ -1,0 +1,27 @@
+<!ELEMENT Families (Family+)>
+
+<!ELEMENT Family (People*)>
+
+<!ATTLIST Family famId ID  #REQUIRED>
+
+<!ELEMENT People (Name,Gender,BirthDate,Contact?,Spouse?,Son*,Daughter*)>
+
+<!ATTLIST People peopleId ID #REQUIRED>
+
+<!ELEMENT Name (#PCDATA)>
+
+<!ELEMENT BirthDate (#PCDATA)>
+
+<!ELEMENT Gender (#PCDATA)>
+
+<!ELEMENT Contact (PhoneNo?,Email?)>
+
+<!ELEMENT PhoneNo (#PCDATA)>
+
+<!ELEMENT Email (#PCDATA)>
+
+<!ELEMENT Spouse (#PCDATA)>
+
+<!ELEMENT Son (#PCDATA)>
+
+<!ELEMENT Daughter (#PCDATA)>

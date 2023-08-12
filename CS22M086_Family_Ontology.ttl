@@ -1,0 +1,392 @@
+@prefix : <http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology/> .
+
+<http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology> rdf:type owl:Ontology ;
+                                                                         rdfs:comment "An ontology about family and their relationships." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#IsMotherInLawOf
+:IsMotherInLawOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isInLawOf ;
+                 rdfs:domain :Mother ;
+                 rdfs:range :Spouse .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isBrotherInLawOf
+:isBrotherInLawOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isInLawOf ;
+                  rdfs:domain :Brother ;
+                  rdfs:range :Spouse .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isBrotherOf
+:isBrotherOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :isSiblingOf ;
+             rdfs:domain :Son ;
+             rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isChildrenOf
+:isChildrenOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Children ;
+              rdfs:range :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isDaughterInLawOf
+:isDaughterInLawOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :isInLawOf ;
+                   rdfs:domain :Wife ;
+                   rdfs:range :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isDaughterOf
+:isDaughterOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :isChildrenOf ;
+              rdfs:domain :Daughter ;
+              rdfs:range :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isFatherInLawOf
+:isFatherInLawOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isInLawOf ;
+                 rdfs:domain :Father ;
+                 rdfs:range :Spouse .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isFatherOf
+:isFatherOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isParentOf ;
+            rdfs:domain :Father ;
+            rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isGrandFatherOf
+:isGrandFatherOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isGrandParentOf ;
+                 rdfs:domain :Father ;
+                 rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isGrandMotherOf
+:isGrandMotherOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isGrandParentOf ;
+                 rdfs:domain :Mother ;
+                 rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isGrandParentOf
+:isGrandParentOf rdf:type owl:ObjectProperty ;
+                 rdfs:domain :GrandParent ;
+                 rdfs:range :People .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isHusbandOf
+:isHusbandOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :isSpouseOf ;
+             rdfs:domain :Husband ;
+             rdfs:range :Wife .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isInLawOf
+:isInLawOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isMotherOf
+:isMotherOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isParentOf ;
+            rdfs:domain :Mother ;
+            rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isParentOf
+:isParentOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Parent ;
+            rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSiblingOf
+:isSiblingOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :Sibling ;
+             rdfs:range :Sibling .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSisterInLawOf
+:isSisterInLawOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isInLawOf ;
+                 rdfs:domain :Sister ;
+                 rdfs:range :Spouse .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSisterOf
+:isSisterOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isSiblingOf ;
+            rdfs:domain :Daughter ;
+            rdfs:range :Children .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSonInLawOf
+:isSonInLawOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :isInLawOf ;
+              rdfs:domain :Husband ;
+              rdfs:range :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSonOf
+:isSonOf rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :isChildrenOf ;
+         rdfs:domain :Son ;
+         rdfs:range :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isSpouseOf
+:isSpouseOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Spouse ;
+            rdfs:range :Spouse .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#isWifeOf
+:isWifeOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :isSpouseOf ;
+          rdfs:domain :Wife ;
+          rdfs:range :Husband .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Aunt
+:Aunt rdf:type owl:Class ;
+      rdfs:subClassOf :Family ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :isSisterOf ;
+                        owl:someValuesFrom :Parent
+                      ] ;
+      owl:disjointWith :Uncle .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Brother
+:Brother rdf:type owl:Class ;
+         rdfs:subClassOf :Male ,
+                         :Sibling ;
+         owl:disjointWith :Sister .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#BrotherInLaw
+:BrotherInLaw rdf:type owl:Class ;
+              rdfs:subClassOf :InLaws ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isBrotherOf ;
+                                owl:someValuesFrom :Spouse
+                              ] ;
+              owl:disjointWith :SisterInLaw .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Children
+:Children rdf:type owl:Class ;
+          rdfs:subClassOf :Family .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Daughter
+:Daughter rdf:type owl:Class ;
+          rdfs:subClassOf :Children ,
+                          :Female .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#DaughterInLaw
+:DaughterInLaw rdf:type owl:Class ;
+               rdfs:subClassOf :InLaws ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isWifeOf ;
+                                 owl:someValuesFrom :Son
+                               ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Family
+:Family rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Father
+:Father rdf:type owl:Class ;
+        rdfs:subClassOf :Male ,
+                        :Parent ;
+        owl:disjointWith :Mother .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#FatherInLaw
+:FatherInLaw rdf:type owl:Class ;
+             rdfs:subClassOf :InLaws ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isFatherOf ;
+                               owl:someValuesFrom :Spouse
+                             ] ;
+             owl:disjointWith :MotherInLaw .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Female
+:Female rdf:type owl:Class ;
+        rdfs:subClassOf :People ;
+        owl:disjointWith :Male .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#GrandFather
+:GrandFather rdf:type owl:Class ;
+             rdfs:subClassOf :GrandParent ,
+                             :Male ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isFatherOf ;
+                               owl:someValuesFrom :Parent
+                             ] ;
+             owl:disjointWith :GrandMother .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#GrandMother
+:GrandMother rdf:type owl:Class ;
+             rdfs:subClassOf :Female ,
+                             :GrandParent ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isMotherOf ;
+                               owl:someValuesFrom :Parent
+                             ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#GrandParent
+:GrandParent rdf:type owl:Class ;
+             rdfs:subClassOf :Family .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Husband
+:Husband rdf:type owl:Class ;
+         rdfs:subClassOf :Male ,
+                         :Spouse ;
+         owl:disjointWith :Wife .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#InLaws
+:InLaws rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Male
+:Male rdf:type owl:Class ;
+      rdfs:subClassOf :People .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Mother
+:Mother rdf:type owl:Class ;
+        rdfs:subClassOf :Female ,
+                        :Parent .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#MotherInLaw
+:MotherInLaw rdf:type owl:Class ;
+             rdfs:subClassOf :InLaws ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isMotherOf ;
+                               owl:someValuesFrom :Spouse
+                             ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Nephew
+:Nephew rdf:type owl:Class ;
+        rdfs:subClassOf :Family ,
+                        :Male ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isSonOf ;
+                          owl:someValuesFrom :Sibling
+                        ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Niece
+:Niece rdf:type owl:Class ;
+       rdfs:subClassOf :Family ,
+                       :Female ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isDaughterOf ;
+                         owl:someValuesFrom :Sibling
+                       ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Parent
+:Parent rdf:type owl:Class ;
+        rdfs:subClassOf :Family .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#People
+:People rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Sibling
+:Sibling rdf:type owl:Class ;
+         rdfs:subClassOf :Family .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Sister
+:Sister rdf:type owl:Class ;
+        rdfs:subClassOf :Female ,
+                        :Sibling .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#SisterInLaw
+:SisterInLaw rdf:type owl:Class ;
+             rdfs:subClassOf :InLaws ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isSisterOf ;
+                               owl:someValuesFrom :Spouse
+                             ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Son
+:Son rdf:type owl:Class ;
+     rdfs:subClassOf :Children ,
+                     :Male .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#SonInLaw
+:SonInLaw rdf:type owl:Class ;
+          rdfs:subClassOf :InLaws ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isHusbandOf ;
+                            owl:someValuesFrom :Daughter
+                          ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Spouse
+:Spouse rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Uncle
+:Uncle rdf:type owl:Class ;
+       rdfs:subClassOf :Family ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isBrotherOf ;
+                         owl:someValuesFrom :Parent
+                       ] .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Wife
+:Wife rdf:type owl:Class ;
+      rdfs:subClassOf :Female ,
+                      :Spouse .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Female
+:Female rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology#Male
+:Male rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

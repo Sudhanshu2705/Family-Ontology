@@ -1,0 +1,370 @@
+@prefix : <http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.semanticweb.org/sudhanshu/ontologies/2023/3/FamilyOntology> a owl:Ontology ;
+    rdfs:comment "An ontology about family and their relationships." .
+
+:Aunt a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isSisterOf ;
+            owl:someValuesFrom :Parent ],
+        :Family ;
+    owl:disjointWith :Uncle .
+
+:BrotherInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isBrotherOf ;
+            owl:someValuesFrom :Spouse ],
+        :InLaws ;
+    owl:disjointWith :SisterInLaw .
+
+:DaughterInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isWifeOf ;
+            owl:someValuesFrom :Son ],
+        :InLaws .
+
+:FatherInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isFatherOf ;
+            owl:someValuesFrom :Spouse ],
+        :InLaws ;
+    owl:disjointWith :MotherInLaw .
+
+:GrandFather a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isFatherOf ;
+            owl:someValuesFrom :Parent ],
+        :GrandParent,
+        :Male ;
+    owl:disjointWith :GrandMother .
+
+:IsMotherInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Mother ;
+    rdfs:range :Spouse ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:Nephew a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isSonOf ;
+            owl:someValuesFrom :Sibling ],
+        :Family,
+        :Male .
+
+:Niece a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isDaughterOf ;
+            owl:someValuesFrom :Sibling ],
+        :Family,
+        :Female .
+
+:SonInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isHusbandOf ;
+            owl:someValuesFrom :Daughter ],
+        :InLaws .
+
+:isBrotherInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Brother ;
+    rdfs:range :Spouse ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:isDaughterInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Wife ;
+    rdfs:range :Parent ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:isFatherInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Father ;
+    rdfs:range :Spouse ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:isGrandFatherOf a owl:ObjectProperty ;
+    rdfs:domain :Father ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isGrandParentOf .
+
+:isGrandMotherOf a owl:ObjectProperty ;
+    rdfs:domain :Mother ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isGrandParentOf .
+
+:isSisterInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Sister ;
+    rdfs:range :Spouse ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:isSonInLawOf a owl:ObjectProperty ;
+    rdfs:domain :Husband ;
+    rdfs:range :Parent ;
+    rdfs:subPropertyOf :isInLawOf .
+
+:Brother a owl:Class ;
+    rdfs:subClassOf :Male,
+        :Sibling ;
+    owl:disjointWith :Sister .
+
+:GrandMother a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isMotherOf ;
+            owl:someValuesFrom :Parent ],
+        :Female,
+        :GrandParent .
+
+:MotherInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isMotherOf ;
+            owl:someValuesFrom :Spouse ],
+        :InLaws .
+
+:SisterInLaw a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isSisterOf ;
+            owl:someValuesFrom :Spouse ],
+        :InLaws .
+
+:Uncle a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isBrotherOf ;
+            owl:someValuesFrom :Parent ],
+        :Family .
+
+:isDaughterOf a owl:ObjectProperty ;
+    rdfs:domain :Daughter ;
+    rdfs:range :Parent ;
+    rdfs:subPropertyOf :isChildrenOf .
+
+:isHusbandOf a owl:ObjectProperty ;
+    rdfs:domain :Husband ;
+    rdfs:range :Wife ;
+    rdfs:subPropertyOf :isSpouseOf .
+
+:isSonOf a owl:ObjectProperty ;
+    rdfs:domain :Son ;
+    rdfs:range :Parent ;
+    rdfs:subPropertyOf :isChildrenOf .
+
+:isWifeOf a owl:ObjectProperty ;
+    rdfs:domain :Wife ;
+    rdfs:range :Husband ;
+    rdfs:subPropertyOf :isSpouseOf .
+
+:Bhavna_Singh :isDaughterOf :Kavita_Gautam ;
+    :isSisterOf :Vishu_Singh .
+
+:Nirjesh_Gautam :isBrotherOf :Siddesh_Gautam ;
+    :isSonOf :Nimesh_Gautam .
+
+:Pratishtha_Singh :isDaughterOf :Shish_Pal_Singh ;
+    :isSisterOf :Vibhu_Singh .
+
+:Siddesh_Gautam :isBrotherOf :Nirjesh_Gautam ;
+    :isSonOf :Nimesh_Gautam .
+
+:Sister a owl:Class ;
+    rdfs:subClassOf :Female,
+        :Sibling .
+
+:Vibhu_Singh :isBrotherOf :Pratishtha_Singh ;
+    :isSonOf :Shish_Pal_Singh .
+
+:Vishu_Singh :isBrotherOf :Bhavna_Singh ;
+    :isSonOf :Kavita_Gautam .
+
+:isBrotherOf a owl:ObjectProperty ;
+    rdfs:domain :Son ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isSiblingOf .
+
+:isChildrenOf a owl:ObjectProperty ;
+    rdfs:domain :Children ;
+    rdfs:range :Parent .
+
+:isFatherOf a owl:ObjectProperty ;
+    rdfs:domain :Father ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isParentOf .
+
+:isGrandParentOf a owl:ObjectProperty ;
+    rdfs:domain :GrandParent ;
+    rdfs:range :People .
+
+:isMotherOf a owl:ObjectProperty ;
+    rdfs:domain :Mother ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isParentOf .
+
+:isParentOf a owl:ObjectProperty ;
+    rdfs:domain :Parent ;
+    rdfs:range :Children .
+
+:isSiblingOf a owl:ObjectProperty ;
+    rdfs:domain :Sibling ;
+    rdfs:range :Sibling .
+
+:isSisterOf a owl:ObjectProperty ;
+    rdfs:domain :Daughter ;
+    rdfs:range :Children ;
+    rdfs:subPropertyOf :isSiblingOf .
+
+:isSpouseOf a owl:ObjectProperty ;
+    rdfs:domain :Spouse ;
+    rdfs:range :Spouse .
+
+:Ajitanshu_Gautam :isBrotherOf :Sudhanshu_Gautam ;
+    :isSonOf :Bala_Rani,
+        :Yograj_Gautam .
+
+:Ashutosh_Singh :isBrotherOf :DOlly_Singh,
+        :Mona_Singh ;
+    :isSonOf :Rishi_Pal_Singh .
+
+:DOlly_Singh :isDaughterOf :Rishi_Pal_Singh ;
+    :isSisterOf :Ashutosh_Singh,
+        :Mona_Singh .
+
+:Daughter a owl:Class ;
+    rdfs:subClassOf :Children,
+        :Female .
+
+:Father a owl:Class ;
+    rdfs:subClassOf :Male,
+        :Parent ;
+    owl:disjointWith :Mother .
+
+:GrandParent a owl:Class ;
+    rdfs:subClassOf :Family .
+
+:Husband a owl:Class ;
+    rdfs:subClassOf :Male,
+        :Spouse ;
+    owl:disjointWith :Wife .
+
+:Mona_Singh :isDaughterOf :Rishi_Pal_Singh ;
+    :isSisterOf :Ashutosh_Singh,
+        :DOlly_Singh .
+
+:People a owl:Class .
+
+:Son a owl:Class ;
+    rdfs:subClassOf :Children,
+        :Male .
+
+:Sudhanshu_Gautam :isBrotherOf :Ajitanshu_Gautam ;
+    :isSonOf :Bala_Rani,
+        :Yograj_Gautam .
+
+:Amitabh_Singh a :Male ;
+    :isFatherOf :Kavita_Gautam,
+        :Nimesh_Gautam,
+        :Yograj_Gautam ;
+    :isHusbandOf :Sarita_Devi .
+
+:Chandra_Pal_Singh a :Male ;
+    :isFatherOf :Bala_Rani,
+        :Rishi_Pal_Singh,
+        :Shish_Pal_Singh ;
+    :isHusbandOf :Krushna_Devi .
+
+:Krushna_Devi a :Female ;
+    :isMotherOf :Bala_Rani,
+        :Rishi_Pal_Singh,
+        :Shish_Pal_Singh ;
+    :isWifeOf :Chandra_Pal_Singh .
+
+:Mother a owl:Class ;
+    rdfs:subClassOf :Female,
+        :Parent .
+
+:Sarita_Devi a :Female ;
+    :isMotherOf :Kavita_Gautam,
+        :Nimesh_Gautam,
+        :Yograj_Gautam ;
+    :isWifeOf :Amitabh_Singh .
+
+:Wife a owl:Class ;
+    rdfs:subClassOf :Female,
+        :Spouse .
+
+:InLaws a owl:Class .
+
+:Kavita_Gautam a :Female ;
+    :isDaughterOf :Amitabh_Singh,
+        :Sarita_Devi ;
+    :isMotherOf :Bhavna_Singh,
+        :Vishu_Singh ;
+    :isSisterOf :Nimesh_Gautam,
+        :Yograj_Gautam ;
+    :isWifeOf :Rajiv_Singh .
+
+:Nimesh_Gautam a :Male ;
+    :isBrotherOf :Kavita_Gautam,
+        :Yograj_Gautam ;
+    :isFatherOf :Nirjesh_Gautam,
+        :Siddesh_Gautam ;
+    :isHusbandOf :Anushka_Singh ;
+    :isSonOf :Amitabh_Singh,
+        :Sarita_Devi .
+
+:Shish_Pal_Singh a :Male ;
+    :isBrotherOf :Bala_Rani,
+        :Rishi_Pal_Singh ;
+    :isFatherOf :Pratishtha_Singh,
+        :Vibhu_Singh ;
+    :isHusbandOf :Indra_Singh ;
+    :isSonOf :Chandra_Pal_Singh,
+        :Krushna_Devi .
+
+:Sibling a owl:Class ;
+    rdfs:subClassOf :Family .
+
+:Yograj_Gautam a :Male ;
+    :isBrotherOf :Kavita_Gautam,
+        :Nimesh_Gautam ;
+    :isFatherOf :Ajitanshu_Gautam,
+        :Sudhanshu_Gautam ;
+    :isHusbandOf :Bala_Rani ;
+    :isSonOf :Amitabh_Singh,
+        :Sarita_Devi .
+
+:isInLawOf a owl:ObjectProperty .
+
+:Bala_Rani a :Female ;
+    :isDaughterOf :Chandra_Pal_Singh,
+        :Krushna_Devi ;
+    :isMotherOf :Ajitanshu_Gautam,
+        :Sudhanshu_Gautam ;
+    :isSisterOf :Rishi_Pal_Singh,
+        :Shish_Pal_Singh ;
+    :isWifeOf :Yograj_Kumar_Gautam .
+
+:Rishi_Pal_Singh a :Male ;
+    :isBrotherOf :Bala_Rani,
+        :Shish_Pal_Singh ;
+    :isFatherOf :Ashutosh_Singh,
+        :DOlly_Singh,
+        :Mona_Singh ;
+    :isHusbandOf :Saroj_Singh ;
+    :isSonOf :Chandra_Pal_Singh,
+        :Krushna_Devi .
+
+:Family a owl:Class .
+
+:Children a owl:Class ;
+    rdfs:subClassOf :Family .
+
+:Female a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:subClassOf :People ;
+    owl:disjointWith :Male .
+
+:Parent a owl:Class ;
+    rdfs:subClassOf :Family .
+
+:Spouse a owl:Class .
+
+:Male a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:subClassOf :People .
+

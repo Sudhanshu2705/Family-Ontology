@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE Families SYSTEM "Family.dtd">
+
+<Families>
+    <Family famId="F1">
+        <People peopleId="P1">
+            <Name>Chandra_Pal_Singh</Name>
+            <Gender>Male</Gender>
+            <BirthDate>20-5-1956</BirthDate>
+            <Contact>
+                <PhoneNo>9657284728</PhoneNo>
+            </Contact>
+            <Spouse>Krushna Devi</Spouse>
+            <Son>Rishi Pal Singh</Son>
+            <Son>Shish Pal Singh</Son>
+            <Daughter>Bala Rani</Daughter>
+        </People>
+        <People peopleId="P2">
+            <Name>Krushna Devi</Name>
+            <Gender>Female</Gender>
+            <BirthDate>18-4-1960</BirthDate>
+            <Contact>
+                <PhoneNo>6784275619</PhoneNo>
+            </Contact>
+            <Spouse>Chandra Pal Singh</Spouse>
+            <Son>Rishi Pal Singh</Son>
+            <Son>Shish Pal Singh</Son>
+            <Daughter>Bala Rani</Daughter>
+        </People>
+        <People peopleId="P3">
+            <Name>Rishi Pal Singh</Name>
+            <Gender>Male</Gender>
+            <BirthDate>4-11-1975</BirthDate>
+            <Contact>
+                <PhoneNo>4638729017</PhoneNo>
+                <Email>rishipalSingh@example.com</Email>
+            </Contact>
+            <Spouse>Saroj Singh</Spouse>
+            <Son>Ashutosh Singh</Son>
+            <Daughter>DOlly Singh</Daughter>
+            <Daughter>Mona Singh</Daughter>
+        </People>
+        <People peopleId="P4">
+            <Name>Shish Pal Singh</Name>
+            <Gender>Male</Gender>
+            <BirthDate>5-3-1976</BirthDate>
+            <Contact>
+                <PhoneNo>2789765492</PhoneNo>
+                <Email>shish@example.com</Email>
+            </Contact>
+            <Spouse>Indra Singh</Spouse>
+            <Son>Vibhu Singh</Son>
+            <Daughter>Pratishtha Singh</Daughter>
+        </People>
+        <People peopleId="P5">
+            <Name>Bala Rani</Name>
+            <Gender>Female</Gender>
+            <BirthDate>25-3-1978</BirthDate>
+            <Contact>
+                <PhoneNo>9867591430</PhoneNo>
+                <Email>balarani@example.com</Email>
+            </Contact>
+            <Spouse>Yograj Kumar Gautam</Spouse>
+            <Son>Ajitanshu Gautam</Son>
+            <Son>Sudhanshu Gautam</Son>
+        </People>
+    </Family>
+    <Family famId="F2">
+        <People peopleId="P6">
+            <Name>Amitabh Singh</Name>
+            <Gender>Male</Gender>
+            <BirthDate>12-10-1954</BirthDate>
+            <Contact>
+                <PhoneNo>6789395723</PhoneNo>
+                <Email>amitabh@example.com</Email>
+            </Contact>
+            <Spouse>Sarita Devi</Spouse>
+            <Son>Nimesh Gautam</Son>
+            <Son>Yograj Gautam</Son>
+            <Daughter>Kavita Gautam</Daughter>
+        </People>
+        <People peopleId="P7">
+            <Name>Sarita Devi</Name>
+            <Gender>Female</Gender>
+            <BirthDate>28-5-1961</BirthDate>
+            <Contact>
+                <PhoneNo>4628462847</PhoneNo>
+                <Email>sarita@example.com</Email>
+            </Contact>
+            <Spouse>Amitabh Singh</Spouse>
+            <Son>Nimesh Gautam</Son>
+            <Son>Yograj Gautam</Son>
+            <Daughter>Kavita Gautam</Daughter>
+        </People>
+        <People peopleId="P8">
+            <Name>Nimesh Gautam</Name>
+            <Gender>Male</Gender>
+            <BirthDate>16-7-1983</BirthDate>
+            <Contact>
+                <PhoneNo>8973528759</PhoneNo>
+                <Email>nimesh@example.com</Email>
+            </Contact>
+            <Spouse>Anushka Singh</Spouse>
+            <Son>Siddesh Gautam</Son>
+            <Son>Nirjesh Gautam</Son>
+        </People>
+        <People peopleId="P9">
+            <Name>Yograj Gautam</Name>
+            <Gender>Male</Gender>
+            <BirthDate>5-5-1986</BirthDate>
+            <Contact>
+                <PhoneNo>9463848283</PhoneNo>
+                <Email>yograj@example.com</Email>
+            </Contact>
+            <Spouse>Bala Rani</Spouse>
+            <Son>Sudhanshu Gautam</Son>
+            <Son>Ajitanshu Gautam</Son>
+        </People>
+        <People peopleId="p10">
+            <Name>Kavita Gautam</Name>
+            <Gender>Female</Gender>
+            <BirthDate>6-10-1985</BirthDate>
+            <Contact>
+                <PhoneNo>8452758291</PhoneNo>
+                <Email>kavita@example.com</Email>
+            </Contact>
+            <Spouse>Rajiv Singh</Spouse>
+            <Son>Vishu Singh</Son>
+            <Daughter>Bhavna Singh</Daughter>
+        </People>
+    </Family>
+</Families>
